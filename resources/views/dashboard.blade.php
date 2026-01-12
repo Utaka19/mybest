@@ -1,17 +1,32 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+    <header>
+        <h1>MyBest</h1>
+    </header>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
+    <main>
+        {{-- 今日カード --}}
+        <section aria-labelledby="today-card-title">
+            <article>
+                <header>
+                    <span>今日</span>
+                    <time datetime="{{ today()->format('Y-m-d') }}">
+                        {{ today()->format('Y-m-d') }}
+                    </time>
+                </header>
+
+                <p>まだ記録がありません</p>
+
+                <a href="{{ url('/') }}">
+                    今日の自己ベストを記録する
+                </a>
+
+                <p>1日1件でOK</p>
+            </article>
+        </section>
+
+        {{-- 過去の記録 --}}
+        <section aria-labelledby="past-records-title">
+            <h2 id="past-records-title">過去の記録</h2>
+        </section>
+    </main>
 </x-app-layout>
