@@ -27,7 +27,7 @@
                 @else
                     <p>まだ記録がありません</p>
 
-                    <a href="#">
+                    <a href="/records/create">
                         今日の自己ベストを記録する
                     </a>
 
