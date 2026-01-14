@@ -15,5 +15,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/records/create', [BestRecordController::class, 'create'])
 ->middleware(['auth', 'verified'])->name('records.create');
+Route::post('/records', [BestRecordController::class, 'store'])
+->middleware(['auth', 'verified'])->name('records.store');
 
 require __DIR__.'/auth.php';

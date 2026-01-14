@@ -16,7 +16,7 @@
 
                 @if ($today_record)
                     <p>{{ $today_record->title }}</p>
-                    <p>{{ $today_record->category }}</p>
+                    <p>{{ $categories[$today_record->category] }}</p>
                     @if (!is_null($today_record->value))
                         <p>{{ $today_record->value }} {{ $today_record->unit }}</p>
                     @endif

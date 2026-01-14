@@ -12,10 +12,10 @@ class HomeController extends Controller
     public function index()
     {
         $current_user_id = Auth::id();
-        $today = date('Y-m-d');
+        $today = now()->toDateString();
         $today_record = BestRecord::where('user_id', $current_user_id)
                                     ->where('recorded_on', $today)
                                     ->first();
-        return view('home', ['today' => $today, 'today_record' => $today_record]);
+        return view('home', ['today' => $today, 'today_record' => $today_record, 'categories' => config('categories')]);
     }
 }
