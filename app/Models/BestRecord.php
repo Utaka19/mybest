@@ -12,5 +12,12 @@ class BestRecord extends Model
         'category',
         'title',
         'note',
+        'value',
+        'unit',
+    ];
+
+    protected $casts = [
+        'recorded_on' => 'date',
+        'value' => 'decimal:2',
     ];
 }

@@ -17,5 +17,9 @@ Route::get('/records/create', [BestRecordController::class, 'create'])
 ->middleware(['auth', 'verified'])->name('records.create');
 Route::post('/records', [BestRecordController::class, 'store'])
 ->middleware(['auth', 'verified'])->name('records.store');
+Route::get('/records/{bestRecord}/edit', [BestRecordController::class, 'edit'])
+->middleware(['auth', 'verified'])->name('records.edit');
+Route::patch('/records/{bestRecord}',[BestRecordController::class, 'update'])
+->middleware(['auth', 'verified'])->name('records.update');
 
 require __DIR__.'/auth.php';

@@ -14,20 +14,20 @@
                     </span>
                 </header>
 
-                @if ($today_record)
-                    <p>{{ $today_record->title }}</p>
-                    <p>{{ $categories[$today_record->category] }}</p>
-                    @if (!is_null($today_record->value))
-                        <p>{{ $today_record->value }} {{ $today_record->unit }}</p>
+                @if ($todayRecord)
+                    <p>{{ $todayRecord->title }}</p>
+                    <p>{{ $categories[$todayRecord->category] }}</p>
+                    @if (!is_null($todayRecord->value))
+                        <p>{{ $todayRecord->value }} {{ $todayRecord->unit }}</p>
                     @endif
 
-                    <a href="#">
+                    <a href="{{ route('records.edit', $todayRecord) }}">
                         編集する
                     </a>
                 @else
                     <p>まだ記録がありません</p>
 
-                    <a href="/records/create">
+                    <a href="{{ route('records.create') }}">
                         今日の自己ベストを記録する
                     </a>
 
