@@ -30,7 +30,10 @@ class BestRecordController extends Controller
 
     public function store(Request $request)
     {
-        $request->merge(['value' => trim((string) $request->input('value'))]);
+        $request->merge([
+            'value' => ($v = trim((string) $request->input('value'))) === '' ? null : $v,
+            'unit'  => ($u = trim((string) $request->input('unit'))) === '' ? null : $u,
+        ]);
 
         $validated = $request->validate(
             [
@@ -95,12 +98,15 @@ class BestRecordController extends Controller
         return view('records.edit',
         ['record' => $bestRecord,
         'categories' => config('categories'),
-        'units' => config('units'),]);
+        'units' => config('units')]);
     }
 
     public function update(Request $request, BestRecord $bestRecord)
     {
-        $request->merge(['value' => trim((string) $request->input('value'))]);
+        $request->merge([
+            'value' => ($v = trim((string) $request->input('value'))) === '' ? null : $v,
+            'unit'  => ($u = trim((string) $request->input('unit'))) === '' ? null : $u,
+        ]);
 
         $validated = $request->validate(
             [
